@@ -499,7 +499,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1550789297}
-  - component: {fileID: 1550789299}
+  - component: {fileID: 1550789298}
   m_Layer: 0
   m_Name: ActionController
   m_TagString: Untagged
@@ -522,7 +522,7 @@ Transform:
   m_Father: {fileID: 714775180}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1550789299
+--- !u!114 &1550789298
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -531,10 +531,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1550789296}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d38e026313915ea4da8c89cc79ec02d8, type: 3}
+  m_Script: {fileID: 11500000, guid: f67b8b84c0ae24647864a07542d569dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 0.5
+  moveSpeed: 1
 --- !u!1 &2132440139
 GameObject:
   m_ObjectHideFlags: 0

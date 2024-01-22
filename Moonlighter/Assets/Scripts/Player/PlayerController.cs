@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     [Header("Roll Speed")]
     public float rollSpeed = 3f;
 
+
     private StateMachine<PlayerController> stateMachine;
     private Animator animator;
 
@@ -29,6 +30,11 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            if(movement == Vector2.zero)
+            {
+                movement = new Vector2(0, -1);
+            }
+
             stateMachine.ChangeState(new RollingState(animator, movement));
         }
         else

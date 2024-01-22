@@ -13,16 +13,16 @@ public class RollingState : State<PlayerController>
 
     public override void Enter(PlayerController entity)
     {
-        animator.SetBool("IsMoving", true);
-        animator.SetTrigger("RollTrigger");
+        //animator.SetBool("IsMoving", true);
+        animator.SetBool("IsMoving", false);
+        animator.SetTrigger("RollingTrigger");
     }
 
     public override void Execute(PlayerController entity)
     {
-        float moveSpeed = entity.rollSpeed;
-        Vector2 movementVector = movement.normalized;
+        Vector2 moveVelocity = movement.normalized * entity.rollSpeed;
 
-        entity.GetComponent<Rigidbody2D>().velocity = movementVector * moveSpeed;
+        entity.GetComponentInParent<Rigidbody2D>().velocity = moveVelocity;
     }
 
     public override void Exit(PlayerController entity)

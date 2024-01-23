@@ -22,7 +22,6 @@ public class MovingState : State<PlayerController>
     public override void Execute(PlayerController entity)
     {
         Vector2 moveVelocity = movement.normalized * entity.moveSpeed;
-        
         entity.GetComponentInParent<Rigidbody2D>().velocity = moveVelocity;
     }
 

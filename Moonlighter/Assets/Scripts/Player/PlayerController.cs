@@ -41,7 +41,10 @@ public class PlayerController : MonoBehaviour
         {
             if (movement.magnitude > 0)
             {
-                stateMachine.ChangeState(new MovingState(animator, movement));
+                if (!animator.GetBool("IsRolling"))
+                {
+                    stateMachine.ChangeState(new MovingState(animator, movement));
+                }
             }
             else
             {

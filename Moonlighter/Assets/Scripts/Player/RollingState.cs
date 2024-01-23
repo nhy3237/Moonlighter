@@ -4,7 +4,7 @@ public class RollingState : State<PlayerController>
 {
     private Animator animator;
     private Vector2 movement;
-    private float rollingDistance = 2f;
+    private float rollingDistance = 0.5f;
     private Vector2 startRollingPosition;
 
     public RollingState(Animator animator, Vector2 movement)
@@ -33,11 +33,11 @@ public class RollingState : State<PlayerController>
         else
         {
             entity.GetComponentInParent<Rigidbody2D>().velocity = Vector2.zero;
+            animator.SetBool("IsRolling", false);
         }
     }
 
     public override void Exit(PlayerController entity)
     {
-        animator.SetBool("IsRolling", false);
     }
 }

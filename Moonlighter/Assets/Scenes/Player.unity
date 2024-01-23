@@ -334,7 +334,7 @@ MonoBehaviour:
   offsetY: 0
   offsetZ: -0.5
   speed: 2
-  padding: 1
+  padding: 1.8
 --- !u!1 &1251680413
 GameObject:
   m_ObjectHideFlags: 0
@@ -554,7 +554,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
-  rollSpeed: 3
+  rollSpeed: 2
 --- !u!1 &2132440139
 GameObject:
   m_ObjectHideFlags: 0

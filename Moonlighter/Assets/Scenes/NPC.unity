@@ -287,6 +287,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &463526583
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 463526584}
+  m_Layer: 0
+  m_Name: End (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &463526584
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 463526583}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.25, y: 0.25, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &554920831
 GameObject:
   m_ObjectHideFlags: 0
@@ -490,6 +521,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 554947463}
   m_CullTransparentMesh: 1
+--- !u!1 &561710057
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 561710058}
+  m_Layer: 0
+  m_Name: End (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &561710058
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 561710057}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.75, y: -0.25, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &601510537
 GameObject:
   m_ObjectHideFlags: 0
@@ -620,7 +682,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &852461761
 GameObject:
@@ -651,10 +713,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4350808d0f3f45feac1c9788c34c08d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bottomLeft: {x: 0, y: 0}
-  topRight: {x: 3, y: 3}
-  startPos: {x: 0, y: 0}
-  targetPos: {x: 3, y: 3}
   FinalNodeList: []
   allowDiagonal: 0
   dontCrossCorner: 0
@@ -1649,7 +1707,7 @@ Tilemap:
       - {fileID: 21300000, guid: 0e05ed8081463492a8154cac1bb275e2, type: 3}
       - {fileID: 21300000, guid: 79ec375d1a0324b33a57ca5cbc6bbd14, type: 3}
       - {fileID: 21300000, guid: a855a4c3099c04565a22cf332b03ac17, type: 3}
-      m_AnimationSpeed: 8.637279
+      m_AnimationSpeed: 8.070548
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 7, y: -19, z: 0}
@@ -1675,7 +1733,7 @@ Tilemap:
       - {fileID: 21300000, guid: 0e05ed8081463492a8154cac1bb275e2, type: 3}
       - {fileID: 21300000, guid: 79ec375d1a0324b33a57ca5cbc6bbd14, type: 3}
       - {fileID: 21300000, guid: a855a4c3099c04565a22cf332b03ac17, type: 3}
-      m_AnimationSpeed: 9.732647
+      m_AnimationSpeed: 9.854137
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 22, y: -18, z: 0}
@@ -1701,7 +1759,7 @@ Tilemap:
       - {fileID: 21300000, guid: 0e05ed8081463492a8154cac1bb275e2, type: 3}
       - {fileID: 21300000, guid: 79ec375d1a0324b33a57ca5cbc6bbd14, type: 3}
       - {fileID: 21300000, guid: a855a4c3099c04565a22cf332b03ac17, type: 3}
-      m_AnimationSpeed: 7.357574
+      m_AnimationSpeed: 8.457378
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 17, y: -16, z: 0}
@@ -1773,7 +1831,7 @@ Tilemap:
       - {fileID: 21300000, guid: 88822f2b08a134708b061bd51796bb9b, type: 3}
       - {fileID: 21300000, guid: 27384ee8ee8854285b08145a98d6cba7, type: 3}
       - {fileID: 21300000, guid: 58c58798e797e41e09d3eee9c4da2e10, type: 3}
-      m_AnimationSpeed: 5.6055236
+      m_AnimationSpeed: 5.8847175
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: -18, y: 5, z: 0}
@@ -1814,7 +1872,7 @@ Tilemap:
       - {fileID: 21300000, guid: 0e05ed8081463492a8154cac1bb275e2, type: 3}
       - {fileID: 21300000, guid: 79ec375d1a0324b33a57ca5cbc6bbd14, type: 3}
       - {fileID: 21300000, guid: a855a4c3099c04565a22cf332b03ac17, type: 3}
-      m_AnimationSpeed: 7.429162
+      m_AnimationSpeed: 9.907243
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 9, y: 14, z: 0}
@@ -1873,7 +1931,7 @@ Tilemap:
       - {fileID: 21300000, guid: 25b05fc1873514ccdae2384d21f53a44, type: 3}
       - {fileID: 21300000, guid: bc84a2097bebd4f71a63f21b0b4fff62, type: 3}
       - {fileID: 21300000, guid: 8b3c069b556294c45bccb10df321fe07, type: 3}
-      m_AnimationSpeed: 7.693751
+      m_AnimationSpeed: 7.131929
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 14, y: 16, z: 0}
@@ -1899,7 +1957,7 @@ Tilemap:
       - {fileID: 21300000, guid: 0e05ed8081463492a8154cac1bb275e2, type: 3}
       - {fileID: 21300000, guid: 79ec375d1a0324b33a57ca5cbc6bbd14, type: 3}
       - {fileID: 21300000, guid: a855a4c3099c04565a22cf332b03ac17, type: 3}
-      m_AnimationSpeed: 8.236223
+      m_AnimationSpeed: 9.452127
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: -23, y: 18, z: 0}
@@ -1925,7 +1983,7 @@ Tilemap:
       - {fileID: 21300000, guid: 0e05ed8081463492a8154cac1bb275e2, type: 3}
       - {fileID: 21300000, guid: 79ec375d1a0324b33a57ca5cbc6bbd14, type: 3}
       - {fileID: 21300000, guid: a855a4c3099c04565a22cf332b03ac17, type: 3}
-      m_AnimationSpeed: 7.779375
+      m_AnimationSpeed: 8.641457
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   m_TileAssetArray:
@@ -3519,8 +3577,9 @@ GameObject:
   - component: {fileID: 1192985594}
   - component: {fileID: 1192985598}
   - component: {fileID: 1192985597}
+  - component: {fileID: 1192985599}
   m_Layer: 0
-  m_Name: Rich_Visitor_Female_01_walking_down_01
+  m_Name: NPCRichVisitorFemale
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3627,6 +3686,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
+  npcFindPath: {fileID: 852461762}
+  FbottomLeft: {x: -12.75, y: -10.25}
+  FtopRight: {x: 12.75, y: 10.25}
 --- !u!50 &1192985598
 Rigidbody2D:
   serializedVersion: 4
@@ -3648,6 +3710,32 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!61 &1192985599
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1192985593}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.48, y: 0.78}
+    newSize: {x: 0.24, y: 0.39}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.48, y: 0.78}
+  m_EdgeRadius: 0
 --- !u!213 &1469100867
 Sprite:
   m_ObjectHideFlags: 0
@@ -3912,13 +4000,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1709324003}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 12.25, y: 9.75, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1732825717
 GameObject:
@@ -4004,9 +4092,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 852461762}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: PathFinding
+      - m_Target: {fileID: 1192985597}
+        m_TargetAssemblyTypeName: NPCController, Assembly-CSharp
+        m_MethodName: MoveStart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

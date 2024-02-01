@@ -111,7 +111,6 @@ public class NPCFindPath : MonoBehaviour
         }
         return FinalNodeList;
 
-
     }
 
     void OpenListAdd(int checkX, int checkY)

@@ -1,14 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class NPCController : MonoBehaviour
 {
-    [SerializeField] float speed = 2f;
+    [SerializeField] float speed = 1f;
     Vector2 motionVector;
     Animator animator;
     Rigidbody2D rigid;
+    float horizontal = 0;
+    float vertical = 0;
+    bool isMoving = false;
+    Vector2 movePosition;
 
     public NPCFindPath npcFindPath;
 
@@ -76,7 +81,7 @@ public class NPCController : MonoBehaviour
         {
             if (col.gameObject.layer == LayerMask.NameToLayer("Wall"))
             {
-                return true; 
+                return true;
             }
         }
 
@@ -85,8 +90,6 @@ public class NPCController : MonoBehaviour
 
     void Update()
     {
-        float horizontal = Input.GetAxisRaw("Horizontal");
-        float vertical = Input.GetAxisRaw("Vertical");
 
         /*
          * down : 0, -1
@@ -97,7 +100,6 @@ public class NPCController : MonoBehaviour
 
         if (horizontal != 0 || vertical != 0)
         {
-            //Debug.Log("Walking : (" + horizontal + "," + horizontal + ")");
             motionVector = new Vector2(horizontal, vertical);
             animator.SetFloat("Horizontal", horizontal);
             animator.SetFloat("Vertical", vertical);
@@ -108,22 +110,33 @@ public class NPCController : MonoBehaviour
         }
         else
         {
-            //Debug.Log("Idle : (" + preHorizontal + "," + preVertical + ")");
             animator.SetBool("Walking", false);
             animator.SetFloat("Horizontal", preHorizontal);
             animator.SetFloat("Vertical", preVertical);
         }
 
-
+        if(isMoving)
+        {
+            NPCMove(movePosition);
+        }
 
     }
 
     private void Move()
     {
-      
+
         List<Node> path = npcFindPath.PathFinding();
         StartCoroutine(FollowPath(path));
 
+    }
+
+    void NPCMove(Vector2 position)
+    {
+        transform.Translate((position - (Vector2)transform.position).normalized *
+            speed * Time.deltaTime);
+
+        if (position == (Vector2)transform.position)
+            isMoving = false;
     }
 
     IEnumerator FollowPath(List<Node> path)
@@ -131,49 +144,64 @@ public class NPCController : MonoBehaviour
         Vector2 prePoint = IndexToLocation(startPos);
         foreach (Node waypoint in path)
         {
-            float horizontal = 0;
-            float vertical = 0;
+
             Vector2 point = IndexToLocation(new Vector2Int(waypoint.x, waypoint.y));
-            if(point.x - prePoint.x > 0)
-            {
-                // right
-                horizontal = 1;
 
-            }
-            else if(point.x - prePoint.x < 0)
+            SetDirection(prePoint, point);
+
+            while (Vector2.Distance(transform.position, point) > 0.1f)
             {
-                // left
-                horizontal = -1;
+                isMoving = true;
+                movePosition = point;
+                yield return null;
             }
 
-            if(point.y - prePoint.y > 0)
-            {
-                // up
-                vertical = 1;
-            }
-            else if(point.y - prePoint.y < 0)
-            {
-                // down
-                vertical = -1;
-            }
 
-            motionVector = new Vector2(horizontal, vertical);
-            animator.SetFloat("Horizontal", horizontal);
-            animator.SetFloat("Vertical", vertical);
-            animator.SetBool("Walking", true);
-
-            transform.position = point;
-            yield return new WaitForSeconds(1f);
+            //transform.position = point;
+            //yield return new WaitForSeconds(1f);
 
             prePoint = point;
         }
 
-        // 이동이 완료되었을 때 메시지를 출력
-        Debug.Log("arrive");
+        horizontal = 0;
+        vertical = 0;
         yield return new WaitForSeconds(5f);
 
         MoveStart();
     }
 
+    void SetDirection(Vector2 prePoint, Vector2 point)
+    {
+        if (point.x - prePoint.x > 0)
+        {
+            // right
+            horizontal = 1;
+            vertical = 0;
 
+        }
+        else if (point.x - prePoint.x < 0)
+        {
+            // left
+
+            horizontal = -1;
+            vertical = 0;
+
+        }
+
+        if (point.y - prePoint.y > 0)
+        {
+            // up
+            horizontal = 0;
+            vertical = 1;
+        }
+        else if (point.y - prePoint.y < 0)
+        {
+            // down
+            horizontal = 0;
+            vertical = -1;
+        }
+
+    }
 }
+
+

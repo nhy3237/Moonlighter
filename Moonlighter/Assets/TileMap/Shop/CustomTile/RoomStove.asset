@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d1514134bc4fbd41bb739b1b9a49231, type: 3}
+  m_Name: RoomStove
+  m_EditorClassIdentifier: 
+  m_DefaultSprite: {fileID: 0}
+  m_DefaultGameObject: {fileID: 0}
+  m_DefaultColliderType: 1
+  m_TilingRules:
+  - m_Id: 0
+    m_Sprites:
+    - {fileID: 21300000, guid: fff4862827f69ce44bb4b2f52e7980d4, type: 3}
+    - {fileID: 21300000, guid: 1afbd96dd1fa536449c1a455291762c9, type: 3}
+    - {fileID: 21300000, guid: 39f8294bb130e694ab5ab5010c561e22, type: 3}
+    - {fileID: 21300000, guid: 34e926fa9725dd84c80c8f35dd9d77bc, type: 3}
+    - {fileID: 21300000, guid: 1eef26af05f39fe4c9defac52fa97d92, type: 3}
+    - {fileID: 21300000, guid: 157700c443c798b44b23c3e57887173b, type: 3}
+    - {fileID: 21300000, guid: 36b096cf6608c994199116034a7bddb3, type: 3}
+    - {fileID: 21300000, guid: c6408c8d7d04ad940ab2fba724d47c8c, type: 3}
+    - {fileID: 21300000, guid: 0413c046cd497ce469527e7c25db067c, type: 3}
+    - {fileID: 21300000, guid: 96dd10f4e092fb94bb448ceef86eedd6, type: 3}
+    - {fileID: 21300000, guid: 8f649b6d79c8ec541aab90b3ee509be3, type: 3}
+    - {fileID: 21300000, guid: 9880fb05e35a837468e95802291b0fc3, type: 3}
+    m_GameObject: {fileID: 0}
+    m_MinAnimationSpeed: 10
+    m_MaxAnimationSpeed: 13
+    m_PerlinScale: 0.5
+    m_Output: 2
+    m_ColliderType: 1
+    m_RandomTransform: 0
+    m_Neighbors: 
+    m_NeighborPositions:
+    - {x: -1, y: 1, z: 0}
+    - {x: 0, y: 1, z: 0}
+    - {x: 1, y: 1, z: 0}
+    - {x: -1, y: 0, z: 0}
+    - {x: 1, y: 0, z: 0}
+    - {x: -1, y: -1, z: 0}
+    - {x: 0, y: -1, z: 0}
+    - {x: 1, y: -1, z: 0}
+    m_RuleTransform: 0

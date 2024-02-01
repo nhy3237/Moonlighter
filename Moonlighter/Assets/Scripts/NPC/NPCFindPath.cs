@@ -16,24 +16,30 @@ public class Node
     public int F { get { return G + H; } }
 }
 
-
-public class GameManager : MonoBehaviour
+public class NPCFindPath : MonoBehaviour
 {
-    public Vector2Int bottomLeft, topRight, startPos, targetPos;
+    private Vector2Int bottomLeft, topRight, startPos, targetPos;
     public List<Node> FinalNodeList;
     public bool allowDiagonal, dontCrossCorner;
-
+    float nodeSize = 0.5f;
     int sizeX, sizeY;
     Node[,] NodeArray;
     Node StartNode, TargetNode, CurNode;
     List<Node> OpenList, ClosedList;
 
+    public void SetPos(Vector2Int left, Vector2Int right, Vector2Int start, Vector2Int end)
+    {
+        bottomLeft = left;
+        topRight = right;
+        startPos = start;
+        targetPos = end;
+    }
 
-    public void PathFinding()
+    public List<Node> PathFinding()
     {
         // NodeArray의 크기 정해주고, isWall, x, y 대입
-        sizeX = topRight.x - bottomLeft.x + 1;
-        sizeY = topRight.y - bottomLeft.y + 1;
+        sizeX = topRight.x - bottomLeft.x;
+        sizeY = topRight.y - bottomLeft.y;
         NodeArray = new Node[sizeX, sizeY];
 
         for (int i = 0; i < sizeX; i++)
@@ -41,7 +47,9 @@ public class GameManager : MonoBehaviour
             for (int j = 0; j < sizeY; j++)
             {
                 bool isWall = false;
-                foreach (Collider2D col in Physics2D.OverlapCircleAll(new Vector2(i + bottomLeft.x, j + bottomLeft.y), 0.4f))
+                Vector2 nodePosition = new Vector2((i + bottomLeft.x) * 0.5f - 12.75f, (j + bottomLeft.y) * 0.5f - 10.25f);
+
+                foreach (Collider2D col in Physics2D.OverlapCircleAll(nodePosition, 0.4f))
                     if (col.gameObject.layer == LayerMask.NameToLayer("Wall")) isWall = true;
 
                 NodeArray[i, j] = new Node(isWall, i + bottomLeft.x, j + bottomLeft.y);
@@ -81,8 +89,8 @@ public class GameManager : MonoBehaviour
                 FinalNodeList.Add(StartNode);
                 FinalNodeList.Reverse();
 
-                for (int i = 0; i < FinalNodeList.Count; i++) print(i + "번째는 " + FinalNodeList[i].x + ", " + FinalNodeList[i].y);
-                return;
+                //for (int i = 0; i < FinalNodeList.Count; i++) print(i + "번째는 " + FinalNodeList[i].x + ", " + FinalNodeList[i].y);
+                return FinalNodeList;
             }
 
 
@@ -101,15 +109,24 @@ public class GameManager : MonoBehaviour
             OpenListAdd(CurNode.x, CurNode.y - 1);
             OpenListAdd(CurNode.x - 1, CurNode.y);
         }
+        return FinalNodeList;
+
     }
 
     void OpenListAdd(int checkX, int checkY)
     {
         // 상하좌우 범위를 벗어나지 않고, 벽이 아니면서, 닫힌리스트에 없다면
-        if (checkX >= bottomLeft.x && checkX < topRight.x + 1 && checkY >= bottomLeft.y && checkY < topRight.y + 1 && !NodeArray[checkX - bottomLeft.x, checkY - bottomLeft.y].isWall && !ClosedList.Contains(NodeArray[checkX - bottomLeft.x, checkY - bottomLeft.y]))
-        {
-            // 대각선 허용시, 벽 사이로 통과 안됨
-            if (allowDiagonal) if (NodeArray[CurNode.x - bottomLeft.x, checkY - bottomLeft.y].isWall && NodeArray[checkX - bottomLeft.x, CurNode.y - bottomLeft.y].isWall) return;
+        //if (checkX >= bottomLeft.x && checkX < topRight.x + 1 && checkY >= bottomLeft.y && checkY < topRight.y + 1
+        //    && !NodeArray[checkX - bottomLeft.x, checkY - bottomLeft.y].isWall && !ClosedList.Contains(NodeArray[checkX - bottomLeft.x, checkY - bottomLeft.y]))
+
+            if (checkX >= bottomLeft.x && checkX < topRight.x && checkY >= bottomLeft.y && checkY < topRight.y &&
+                checkX - bottomLeft.x >= 0 && checkY - bottomLeft.y >= 0 && !NodeArray[checkX - bottomLeft.x, checkY - bottomLeft.y].isWall
+                && !ClosedList.Contains(NodeArray[checkX - bottomLeft.x, checkY - bottomLeft.y]))
+
+
+            {
+                // 대각선 허용시, 벽 사이로 통과 안됨
+                if (allowDiagonal) if (NodeArray[CurNode.x - bottomLeft.x, checkY - bottomLeft.y].isWall && NodeArray[checkX - bottomLeft.x, CurNode.y - bottomLeft.y].isWall) return;
 
             // 코너를 가로질러 가지 않을시, 이동 중에 수직수평 장애물이 있으면 안됨
             if (dontCrossCorner) if (NodeArray[CurNode.x - bottomLeft.x, checkY - bottomLeft.y].isWall || NodeArray[checkX - bottomLeft.x, CurNode.y - bottomLeft.y].isWall) return;
@@ -132,9 +149,4 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void OnDrawGizmos()
-    {
-        if (FinalNodeList.Count != 0) for (int i = 0; i < FinalNodeList.Count - 1; i++)
-                Gizmos.DrawLine(new Vector2(FinalNodeList[i].x, FinalNodeList[i].y), new Vector2(FinalNodeList[i + 1].x, FinalNodeList[i + 1].y));
-    }
 }
